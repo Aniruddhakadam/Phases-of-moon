@@ -1,0 +1,118 @@
+body{
+  background-color: #0c1445;
+}
+.moon-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 50px;
+}
+.moon {
+  width: 100px;
+  height: 100px;
+  background-color: #c7c7c7;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.moon::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  border-radius: 50%;
+  transform-origin: bottom left;
+  animation-duration: 60s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.moon::before {
+  animation-name: rotate-moon;
+}
+
+.moon.phase-new::before {
+  animation-name: rotate-moon-new;
+}
+
+.moon.phase-first-quarter::before {
+  animation-name: rotate-moon-first-quarter;
+}
+
+.moon.phase-full::before {
+  animation-name: rotate-moon-full;
+}
+
+.moon.phase-last-quarter::before {
+  animation-name: rotate-moon-last-quarter;
+}
+
+@keyframes rotate-moon {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-moon-new {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-moon-first-quarter {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-moon-full {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate-moon-last-quarter {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-90deg);
+  }
+  50% {
+    transform: rotate(-180deg);
+  }
+  75% {
+    transform: rotate(-270deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
